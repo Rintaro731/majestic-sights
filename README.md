@@ -1,24 +1,38 @@
-# README
+# Majestic-Sights
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+·国々の雄大な名所についてのSNS
 
-Things you may want to cover:
+### サイトテーマ
+·各国の魅力を知ろう
 
-* Ruby version
+### テーマを選んだ理由
+·色々な国に興味がありシェアをしあって国の魅力を認知できると考えた為
 
-* System dependencies
+### ターゲットユーザ
+·世界各国の魅力を知りたい貴方様へ
 
-* Configuration
+### 主な利用シーン
+·各国のここに行ってみたい､各国のオススメスポットなどを知りたいとき
 
-* Database creation
+## 設計書
+<p>·<a href="https://app.diagrams.net/#G1GjiUP69weBHjkrZ6-0yH55-PSHZELhQX">ER図</a></p>
+<p>·<a href="https://docs.google.com/spreadsheets/d/1JUkRu02NrX0VJj30AvAom4FYJzXTFB-SX4BBwdbs99s/edit#gid=0">テーブル定義書</a></p>
+<p>·<a href="https://docs.google.com/spreadsheets/d/1KkFIwRtYoluJL7pNqAisgGPYVH30ECaVOwFVqoplVD0/edit#gid=1823314473">詳細設計書</a></p>
 
-* Database initialization
+## チャレンジ要素一覧
+<p>·<a href="https://docs.google.com/spreadsheets/d/11MNcPZ9QYr0fUPDZAC0vI0wRbVC2ZuHpZ1EQl_mVqf4/edit#gid=0">一覧を表示</a></p>
 
-* How to run the test suite
+## 開発環境
+·OS：Linux(CentOS)
 
-* Services (job queues, cache servers, search engines, etc.)
+·言語：HTML,CSS,JavaScript,Ruby,SQL
 
-* Deployment instructions
+·フレームワーク：Ruby on Rails
 
-* ...
+·JSライブラリ：jQuery
+
+·IDE：Cloud9
+
+## 使用素材
+<p>·<a href="https://publicdomainq.net/">パブリックドメインQ：著作権フリー画像素材集</a></p>
