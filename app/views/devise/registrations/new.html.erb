@@ -1,77 +1,79 @@
-<div class="container" style="margin-top: 100px;">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1 style="color: white;">-Sign up-</h1><br>
-      <h4 class="mt-5" style="color: white;">-フォームを入力してください-</h4><br>
-    </div>
-  </div>
-
-  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <a class="text-center"><%= render "devise/shared/error_messages", resource: resource %></a>
-
-
-    <div class="row" style="font-size: 13px; margin-top: 10px;">
-      <div class="col-md-3 text-left">
-      </div>
-      <div class="col-md-3 text-left">
-        <h5 style="color: white;"><%= f.label :ユーザー名 %></h5>
-      </div>
-      <div class="col-md-3 text-left">
-        <%= f.text_field :name, autofocus: true, class: "name", placeholder: "Sample123", size: 50 %>
+<div class="sign"><br>
+  <div class="container"><br>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 style="color: white;">-Sign up-</h1><br>
+        <h4 class="mt-5" style="color: white;">-フォームを入力してください-</h4><br>
       </div>
     </div>
 
-    <div class="row" style="font-size: 13px; margin-top: 10px;">
-      <div class="col-md-3 text-left">
-      </div>
-      <div class="col-md-3 text-left">
-        <h5 style="color: white;"><%= f.label :メールアドレス %></h5>
-      </div>
-      <div class="col-md-3 text-left">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", size: 50 %>
-      </div>
-    </div>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <a class="text-center"><%= render "devise/shared/error_messages", resource: resource %></a>
 
-    <div class="row" style="font-size: 13px; margin-top: 10px;">
-      <div class="col-md-3 text-left">
-      </div>
-      <div class="col-md-3 text-left">
-        <h5 style="color: white;"><%= f.label :パスワード（６文字以上） %></h5>
-      </div>
-      <div class="col-md-3 text-left">
-        <%= f.password_field :password, autocomplete: "new-password", size: 50 %>
-      </div>
-    </div>
 
-    <div class="row" style="font-size: 13px; margin-top: 10px;">
-      <div class="col-md-3 text-left">
-      </div>
-      <div class="col-md-3 text-left">
-        <h5 style="color: white;"><%= f.label :パスワード（確認用） %></h5>
-      </div>
-      <div class="col-md-3 text-left">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 50 %>
-      </div>
-    </div>
-
-    <div class="row" style="margin-top: 10px;">
-      <div class="col-md-6 text-left">
-      </div>
-      <div class="col-md-2 text-center">
-        <div class="actions">
-          <%= f.submit "サインアップ", class: "btn btn-success btn-block btn-sm" %>
+      <div class="row" style="font-size: 13px; margin-top: 10px;">
+        <div class="col-md-3 text-left">
+        </div>
+        <div class="col-md-3 text-left">
+          <h5 style="color: white;"><%= f.label :ユーザー名 %></h5>
+        </div>
+        <div class="col-md-3 text-left">
+          <%= f.text_field :name, autofocus: true, class: "name", placeholder: "Sample123", size: 50 %>
         </div>
       </div>
-   </div>
-  <% end %>
-  <div class="row mt-5">
-    <div class="col-md-12 text-center">
-      <h4 style="color: white;">-既に会員登録がお済みの方-</h4>
+
+      <div class="row" style="font-size: 13px; margin-top: 10px;">
+        <div class="col-md-3 text-left">
+        </div>
+        <div class="col-md-3 text-left">
+          <h5 style="color: white;"><%= f.label :メールアドレス %></h5>
+        </div>
+        <div class="col-md-3 text-left">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", size: 50 %>
+        </div>
+      </div>
+
+      <div class="row" style="font-size: 13px; margin-top: 10px;">
+        <div class="col-md-3 text-left">
+        </div>
+        <div class="col-md-3 text-left">
+          <h5 style="color: white;"><%= f.label :パスワード（６文字以上） %></h5>
+        </div>
+        <div class="col-md-3 text-left">
+          <%= f.password_field :password, autocomplete: "new-password", size: 50 %>
+        </div>
+      </div>
+
+      <div class="row" style="font-size: 13px; margin-top: 10px;">
+        <div class="col-md-3 text-left">
+        </div>
+        <div class="col-md-3 text-left">
+          <h5 style="color: white;"><%= f.label :パスワード（確認用） %></h5>
+        </div>
+        <div class="col-md-3 text-left">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 50 %>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 text-left">
+        </div>
+        <div class="col-md-2 text-center">
+          <div class="actions">
+            <%= f.submit "サインアップ", class: "btn btn-success btn-block btn-sm" %>
+          </div>
+        </div>
+     </div>
+    <% end %>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <h4 style="color: white;">-既に会員登録がお済みの方-</h4>
+      </div>
     </div>
-  </div>
-  <div class="row mt-2">
-    <div class="col-md-8 text-right">
-      <p style="color: white;"><%= link_to 'こちら', new_user_session_path %>からサインインしてください.</p>
+    <div class="row mt-2">
+      <div class="col-md-8 text-right" style="margin-bottom: 20px;">
+        <p style="color: white;"><%= link_to 'こちら', new_user_session_path %>からサインインしてください.</p>
+      </div>
     </div>
   </div>
 </div>
