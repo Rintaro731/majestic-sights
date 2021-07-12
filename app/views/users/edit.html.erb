@@ -1,0 +1,32 @@
+<div class="img">
+  <div class='container'>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 style="color: white;">-User info-</h1><br>
+      </div>
+    </div>
+
+
+    <div class='row'>
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <%= form_with model:@user, local:true do |f| %>
+          <div class="form-group">
+            <%= f.label :ユーザー名 %>
+            <%= f.text_field :name, class: "form-control name" %>
+          </div><br>
+          <div class="form-group">
+            <%= f.label :プロフィール画像 %>
+            <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+          </div><br>
+          <div class="form-group">
+            <%= f.label :自己紹介欄 %>
+            <%= f.text_area :introduction, class: "form-control introduction"%>
+          </div><br>
+          <div class="form-group" style="margin-bottom: 160px;">
+            <%= f.submit "変更を保存", class: 'btn btn-success col-md-4' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
