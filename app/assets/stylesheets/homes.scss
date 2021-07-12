@@ -1,3 +1,18 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+  body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+.footer-text {
+    color: white;
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'ヒラギノ明朝 Pro W6';
+}
