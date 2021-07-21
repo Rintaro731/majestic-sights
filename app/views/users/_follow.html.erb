@@ -1,0 +1,25 @@
+<% if users.exists? %>
+<table class="table table-inverse">
+  <thead>
+    <tr class="follow">
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% users.each do |user| %>
+    <tbody>
+      <tr class="follow">
+        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %></td>
+        <td><%= user.name %></td>
+        <td>フォロー数: <%= user.followings.count %></td>
+        <td>フォロワー数: <%= user.followers.count %></td>
+        <td><%= link_to 'Show', user_path(user), class: "btn btn-info user_#{user.id}" %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+<% else %>
+  <p style="color: white;">ユーザーはいません</p>
+<% end %>

@@ -76,4 +76,7 @@ gem 'ransack'
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
 
+gem "gmaps4rails"
+gem "geocoder"
+gem "gon"
 gem 'dotenv-rails'

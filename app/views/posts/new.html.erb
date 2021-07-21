@@ -1,0 +1,39 @@
+<div class="img"><br>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 style="color: white;">-New Post-</h2><br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <%= form_with model: @post, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :画像 %><br>
+            <%= f.attachment_field :image, class: "image" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :住所 %>
+            <%= f.text_field :address, class: "form-control address", placeholder: "Honolulu, HI 96815 アメリカ合衆国" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :スポット名 %>
+            <%= f.text_field :title, class: "form-control title", placeholder: "ワイキキビーチ" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :説明文 %>
+            <%= f.text_area :body, class: "form-control body", placeholder: "白いビーチとコバルトブルーに輝く海。その先にそびえるダイヤモンドヘッドまでの景観は、ハワイを語る上でこの景色なくしては語れません。" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :タグ %>
+            <%= f.text_field :tag_list, class: "form-control tag", placeholder: "#ハワイ" %>
+          </div><br>
+          <div class="form-group">
+            <%= f.submit "投稿", class: 'btn btn-success col-md-4' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
