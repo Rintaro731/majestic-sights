@@ -5,64 +5,80 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="css/skippr.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheets" href="stylesheets/style.css" />
+    <link rel="stylesheets" href="stylesheets/skippr.css" />
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/0b305dc30a.js" crossorigin="anonymous"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/skippr.min.js"></script>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <div>
-            <%= link_to root_path do %>
-                <%= image_tag 'mj.png', size: '150x70'%>
+        <div id="logo">
+          <%= link_to root_path do %>
+              <%= image_tag 'mj.png', size: '150x70'%>
+          <% end %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " My Page", user_path(current_user.id), class: 'fas fa-user-cog nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " New Post", new_post_path, class: 'fas fa-plus-square nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " Posts List", posts_path, class: 'fas fa-passport nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton" style="text-center">
+                <div class="text-center">
+                  <%= link_to " Sign Out", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <div id="search">
+                <div class="text-center">
+                  <%= render 'searches/form' %>
+                </div>
+              </div>
+            <% else %>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " Home", root_path, class: 'fas fa-home nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " About", home_about_path, class: 'fas fa-info-circle nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " Sign Up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
+              <li class="botton">
+                <div class="text-center">
+                  <%= link_to " Sign In", new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-light btn btn-outline-light btn-block' %>
+                </div>
+              </li>
             <% end %>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <li style="color: white;">
-                  ようこそ <%= current_user.name %> さん!
-                </li>
-                <li class="margin-left">
-                  <%= link_to " My page", user_path(current_user.id), class: 'fas fa-user-cog nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " New Post", new_post_path, class: 'fas fa-plus-square nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " Posts", posts_path, class: 'fas fa-passport nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " Sign out", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light btn btn-outline-light' %>
-                </li>
-              <% else %>
-                <li class="margin-left">
-                  <%= link_to " Home", root_path, class: 'fas fa-home nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " About", home_about_path, class: 'fas fa-info-circle nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " Sign up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light btn btn-outline-light' %>
-                </li>
-                <li class="margin-left">
-                  <%= link_to " Sign in", new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-light btn btn-outline-light' %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+          </ul>
         </div>
       </nav>
     </header>
+    <%= render 'layouts/flash' %>
     <%= yield %>
     <footer class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 80px;">
       <div class="col-md-12" style="text-align:center">
