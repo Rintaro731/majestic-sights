@@ -21,8 +21,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
 
-  def favorited_by?(post_id)
-    favorites.where(post_id: post_id).exists?
+  def already_favorited?(post)
+    self.favorites.exists?(post_id: post.id)
   end
 
   def follow(user_id)

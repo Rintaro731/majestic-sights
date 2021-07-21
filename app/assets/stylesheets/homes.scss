@@ -3,16 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-  body {
-    height: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+body {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 .footer-text {
-    color: white;
-    margin: 0 auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-family: 'ヒラギノ明朝 Pro W6';
+  color: white;
+  margin: 0 auto;
+  font-family: 'ヒラギノ明朝 Pro W6';
+}
+
+.home {
+  position: absolute;
+  top: 30%;
+  left: 28%;
+  z-index: 9998;
+}
+
+.box p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+}
+
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
 }

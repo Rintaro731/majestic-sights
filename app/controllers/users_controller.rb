@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
-    @post = Post.new
-    @posts = Post.where(user_id: @user.id)
+    @posts = @user.posts.all.order(created_at: :desc)
   end
 
   def edit
@@ -18,15 +19,16 @@ class UsersController < ApplicationController
   def update
      @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      redirect_to user_path(@user), success: '会員情報が更新されました｡'
     else
+      flash[:danger] = '会員情報の更新に失敗しました｡'
       render "edit"
     end
   end
 
   def follows
     user = User.find(params[:id])
-    @user = user.followings
+    @users = user.followings
   end
 
   def followers
@@ -35,6 +37,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
