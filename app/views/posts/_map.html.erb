@@ -1,37 +1,28 @@
 <div id='map'></div>
 
-<style>
-#map {
-  height: 250px;
-  width: 100%;
-}
-</style>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>&callback=initMap" async defer></script>
 <script>
   let map;
 
-  $(document).on('turbolinks:load', function() {
-    function initMap() {
-      geocoder = new google.maps.Geocoder()
+  function initMap() {
+    geocoder = new google.maps.Geocoder()
 
-      map = new google.maps.Map(document.getElementById('map'), {
-        // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
-        center: {
-          lat: gon.post.latitude,
-          lng: gon.post.longitude
-        },
-        zoom: 12,
-      });
+    map = new google.maps.Map(document.getElementById('map'), {
+      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+      center: {
+        lat: <%= @post.latitude %>,
+        lng: <%= @post.longitude %>
+      },
+      zoom: 12,
+    });
 
-      marker = new google.maps.Marker({
-        // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
-        position: {
-          lat: gon.post.latitude,
-          lng: gon.post.longitude
-        },
-        map: map
-      });
-    }
-  });
+    marker = new google.maps.Marker({
+      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+      position: {
+        lat: <%= @post.latitude %>,
+        lng: <%= @post.longitude %>
+      },
+      map: map
+    });
+  }
 </script>
