@@ -1,0 +1,19 @@
+<div class="img">
+  <div class="containar"><br>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% if @keyword.present? %>
+          <h2 style="color: white;">- Search Results "<%= @keyword %>" -</h2><br>
+        <% elsif %>
+          <h2 style="color: white;">- Search Results All -</h2><br>
+        <% else %>
+          <h2 style="color: white;">- <%= @keyword %>"の投稿がありません｡ -</h2><br>
+        <% end %>
+      </div>
+    </div>
+    <% if @posts.present? %>
+      <%= render "posts/post" %>
+    <% else %>
+    <% end %>
+  </div><br>
+</div>

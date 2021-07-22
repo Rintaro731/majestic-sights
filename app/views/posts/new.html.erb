@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
             <%= f.label :住所 %>
-            <%= f.text_field :address, class: "form-control address", placeholder: "Honolulu, HI 96815 アメリカ合衆国" %>
+            <%= f.text_field :address, class: "form-control address", placeholder: "アメリカ合衆国 〒96815 ハワイ州 ホノルル" %>
           </div>
           <div class="form-group">
             <%= f.label :スポット名 %>
@@ -27,9 +27,9 @@
           </div>
           <div class="form-group">
             <%= f.label :タグ %>
-            <%= f.text_field :tag_list, class: "form-control tag", placeholder: "#ハワイ" %>
+            <%= f.text_field :tag_name, class: "form-control tag", placeholder: "ハワイ,ビーチ,ダイアモンドヘッド" %>
           </div><br>
-          <div class="form-group">
+          <div class="form-group" style="padding-bottom: 80px;">
             <%= f.submit "投稿", class: 'btn btn-success col-md-4' %>
           </div>
         <% end %>
