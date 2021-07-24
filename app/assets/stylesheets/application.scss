@@ -43,25 +43,25 @@ footer {
 }
 
 .image1 {
-  background-image: url(01.jpg);
+  background-image: image-url("01.jpg");
 }
 .image2 {
-  background-image: url(02.jpg);
+  background-image: image-url("02.jpg");
 }
 .image3 {
-  background-image: url(03.jpg);
+  background-image: image-url("03.jpg");
 }
 .image4 {
-  background-image: url(04.jpg);
+  background-image: image-url("04.jpg");
 }
 .image5 {
-  background-image: url(05.jpg);
+  background-image: image-url("05.jpg");
 }
 .image6 {
-  background-image: url(06.jpg);
+  background-image: image-url("06.jpg");
 }
 .image7 {
-  background-image: url(07.jpg);
+  background-image: image-url("07.jpg");
 }
 
 #slider{
