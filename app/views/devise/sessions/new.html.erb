@@ -2,8 +2,8 @@
   <div class="container mt-3"><br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <h1 style="color: white;">-Sign in-</h1><br>
-        <h4 class="mt-5" style="color: white;">-会員の方はこちらからサインイン-</h4><br>
+        <h1 style="color: white;">〘 Sign in 〙</h1><br>
+        <h4 class="mt-5" style="color: white;">〘 会員の方はこちらからサインイン 〙</h4><br>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
         <div class="col-md-3 text-left">
         </div>
         <div class="col-md-2 text-left">
-          <h5 style="color: white;"><%= f.label :メールアドレス %></h5>
+          <h5 style="color: white;"><%= f.label :メールアドレス %></h5><br>
         </div>
         <div class="col-md-3 text-left">
           <%= f.email_field :email, autofocus: true, size: 50 %>
@@ -24,7 +24,7 @@
         <div class="col-md-3 text-left">
         </div>
         <div class="col-md-2 text-left">
-          <h5 style="color: white;"><%= f.label :パスワード %></h5>
+          <h5 style="color: white;"><%= f.label :パスワード %></h5><br>
         </div>
         <div class="col-md-3 text-left">
           <%= f.password_field :password, autocomplete: "current-password", size: 50 %>
@@ -43,12 +43,12 @@
     <% end %>
     <div class="row mt-5">
       <div class="col-md-12 text-center">
-        <h4 style="color: white;">-登録がお済みでない方-</h4>
+        <h4 style="color: white;">〘 登録がお済みでない方 〙</h4>
       </div>
     </div>
     <div class="row mt-2">
       <div class="col-md-8 text-right" style="margin-bottom: 120px;">
-        <p style="color: white;"><%= link_to 'こちら', new_user_registration_path %>から新規登録を行ってください.</p>
+        <p style="color: white;"><%= link_to ' ▷こちら◁', new_user_registration_path %>から新規登録を行ってください.</p>
       </div>
     </div>
   </div>

@@ -1,8 +1,12 @@
-<div class="img"><br>
+<div class="img2"><br>
   <div class='container mt-5'>
     <div class="row">
       <div class="col-md-12 text-center">
-        <h2 style="color: white;">[<%= @user.name %> Detail]</h2><br>
+        <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+          <h2 style="color: white;">〘 My Page 〙</h2><br>
+        <% else %>
+          <h2 style="color: white;">〘 <%= @user.name %> Detail 〙</h2><br>
+        <% end %>
       </div>
     </div>
       <div class='col-sm-12 text-center'>
@@ -11,13 +15,16 @@
         </p>
       </div>
         <div class="col-sm-8 text-center mx-auto mt-4">
-          <tr>
-            <% if current_user.following?(@user) %>
-              <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "btn btn-danger" %>
-            <% else %>
-              <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
-            <% end %>
-          </tr>
+          <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+          <% else %>
+            <tr>
+              <% if current_user.following?(@user) %>
+                <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "btn btn-danger" %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+              <% end %>
+            </tr>
+          <% end %>
           <table class='table table-bordered' style="margin-top: 10px;">
             <tr>
         	    <th class="table-dark" style="color: white;">ユーザー名</th>
@@ -28,19 +35,21 @@
       	      <th style="color: white;"><%= @user.introduction %></th>
             </tr>
             <tr>
-              <th class="table-dark" style="color: white;">フォロー中</th>
+              <th class="table-dark" style="color: white;">フォロー数</th>
               <th id="count"><%= link_to @user.followings.count, follows_user_path(@user) %></th>
             </tr>
             <tr>
-              <th class="table-dark" style="color: white;">フォロワー</th>
+              <th class="table-dark" style="color: white;">フォロワー数</th>
               <th><%= link_to @user.followers.count, followers_user_path(@user) %></th>
             </tr>
           </table>
-          <div>
-            <%= link_to edit_user_path(@user), class: "btn btn-info col-md-6", method: :get do %>
-             <i class="fas fa-cog"></i>
-            <% end %>
-          </div>
+          <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+            <div>
+              <%= link_to edit_user_path(@user), class: "btn btn-info col-md-6", method: :get do %>
+               <i class="fas fa-cog"></i>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       <%= render 'posts/post' %>
   </div><br>

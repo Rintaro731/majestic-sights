@@ -21,6 +21,7 @@
 //= require turbolinks
 //= require_tree .
 
+//スライドショー
 $(document).on('turbolinks:load', function() {
   $(document).ready(function () {
     $("#skippr-slider").skippr({
@@ -48,6 +49,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+//テキストエリアの改行時の幅を増幅
 $(document).on('turbolinks:load', function() {
   $(function(){
     $('textarea.body')
@@ -62,6 +64,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+//テキストエリアの改行時の幅を増幅
 $(document).on('turbolinks:load', function() {
   $(function(){
     $('textarea.introduction')
@@ -85,4 +88,9 @@ $(document).ready(function () {
 $(function() {
   var height=$("#header").height();
   $("body").css("margin-top", height + 10);//10pxだけ余裕をもたせる
+});
+
+//Flashメーセージフェードアウト
+$(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 2000);
 });

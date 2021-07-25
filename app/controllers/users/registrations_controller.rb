@@ -4,16 +4,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  # オーバーライド
-  def is_flashing_format?
-    false
-  end
+  #オーバーライド
+  # def is_flashing_format?
+  #   false
+  # end
 
   # GET /resource/sign_up
-   def new
-     super
-     flash[:success	] = '会員情報が正常に登録されました｡'
-   end
+  # def new
+  #   super
+  # end
 
   # POST /resource
   # def create
@@ -67,6 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
+    flash[:success] = '会員情報が正常に登録されました｡'
     root_path
   end
 

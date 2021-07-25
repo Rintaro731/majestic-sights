@@ -4,15 +4,14 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # オーバーライド
-  def is_flashing_format?
-    false
-  end
+   def is_flashing_format?
+     false
+   end
 
   # GET /resource/sign_in
-   def new
-     super
-     flash[:info] = 'サインインに成功しました｡'
-   end
+  # def new
+  #   super
+  # end
 
   # POST /resource/sign_in
   # def create
@@ -20,10 +19,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-   def destroy
-     super
-     flash[:danger] = 'サインアウトに成功しました｡'
-   end
+  # def destroy
+  #   super
+  # end
 
   # protected
 
@@ -33,10 +31,12 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
+    flash[:info] = 'サインインに成功しました｡'
     root_path
   end
 
   def after_sign_out_path_for(resource)
+    flash[:danger] = 'サインアウトに成功しました｡'
     root_path
   end
 
