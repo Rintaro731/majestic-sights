@@ -1,13 +1,15 @@
+<% if @posts.present? %>
+<div class="img2">
+<% else %>
 <div class="img">
+<% end %>
   <div class="containar"><br>
     <div class="row">
       <div class="col-md-12 text-center">
-        <% if @keyword.present? %>
+        <% if @posts.present? %>
           <h2 style="color: white; margin-top: 50px;">〘 <%= @keyword %> Search Results 〙</h2><br>
-        <% elsif %>
-          <h2 style="color: white; margin-top: 50px;">〘 Search Results All 〙</h2><br>
         <% else %>
-          <h2 style="color: white; margin-top: 50px;">〘 <%= @keyword %>"の投稿がありません｡ 〙</h2><br>
+          <h2 style="color: white; margin-top: 50px;">〘 <%= @keyword %> の投稿がありません｡ 〙</h2><br>
         <% end %>
       </div>
     </div>
