@@ -23,8 +23,8 @@ header {
 }
 
 footer {
-position: absolute;
-bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 #flash {
@@ -67,7 +67,7 @@ bottom: 0;
 
 #slider{
   width:	100%;
-  height: 45vw;
+  height: 100vh;
 }
 
 .sign {
@@ -75,7 +75,7 @@ bottom: 0;
   background-image: image-url("back.jpg"); /* 画像 */
   background-size: cover;                  /* 全画面 */
   background-position: center center;      /* 縦横中央 */
-  height: auto;
+  height: 100Vh;
 }
 
 .img {
