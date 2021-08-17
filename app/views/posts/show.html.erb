@@ -42,10 +42,12 @@
               </div>
             </div>
             <div class="col-md-12">
-              <p>‹タグ›</p>
-              <% @post_tags.each do |tag| %>
-                  <%= tag.tag_name %><%= "(#{tag.posts.count})" %><br>
-              <% end %>
+              <div class="tag">
+                <p>‹タグ›</p>
+                <% @post_tags.each do |tag| %>
+                    <%= tag.tag_name %><%= "(#{tag.posts.count})" %><br>
+                <% end %>
+              </div>
             </div>
             <div class="col-md-12"><br>
               <p>‹コメント›</p>
