@@ -9,48 +9,53 @@
         <% end %>
       </div>
     </div>
-      <div class='col-sm-12 text-center'>
-        <p class="image">
-          <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size: "200x200", class:"mt-3 rounded-circle"; %>
-        </p>
-      </div>
-        <div class="col-sm-8 text-center mx-auto mt-4">
-          <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+    <div class='col-sm-12 text-center'>
+      <p class="image">
+        <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size: "200x200", class:"mt-3 rounded-circle"; %>
+      </p>
+    </div>
+    <div class="col-sm-8 text-center mx-auto mt-4">
+      <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+      <% else %>
+        <tr>
+          <% if current_user.following?(@user) %>
+            <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "btn btn-danger" %>
           <% else %>
-            <tr>
-              <% if current_user.following?(@user) %>
-                <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "btn btn-danger" %>
-              <% else %>
-                <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
-              <% end %>
-            </tr>
+            <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
           <% end %>
-          <table class='table table-bordered' style="margin-top: 10px;">
-            <tr>
-        	    <th class="table-dark" style="color: white;">ユーザー名</th>
-        	    <th style="color: white;"><%= @user.name %></th>
-            </tr>
-            <tr>
-      	      <th class="table-dark" style="color: white;">自己紹介</th>
-      	      <th style="color: white;"><%= @user.introduction %></th>
-            </tr>
-            <tr>
-              <th class="table-dark" style="color: white;">フォロー数</th>
-              <th id="count"><%= link_to @user.followings.count, follows_user_path(@user) %></th>
-            </tr>
-            <tr>
-              <th class="table-dark" style="color: white;">フォロワー数</th>
-              <th><%= link_to @user.followers.count, followers_user_path(@user) %></th>
-            </tr>
-          </table>
-          <% if user_signed_in? && current_user.id.to_s == params[:id] %>
-            <div>
-              <%= link_to edit_user_path(@user), class: "btn btn-info col-md-6", method: :get do %>
-               <i class="fas fa-cog"></i>
-              <% end %>
-            </div>
+        </tr>
+      <% end %>
+      <table class='table table-bordered' style="margin-top: 10px;">
+        <tr>
+    	    <th class="table-dark" style="color: white;">ユーザー名</th>
+    	    <th style="color: white;"><%= @user.name %></th>
+        </tr>
+        <tr>
+  	      <th class="table-dark" style="color: white;">自己紹介</th>
+  	      <th style="color: white;"><%= @user.introduction %></th>
+        </tr>
+        <tr>
+          <th class="table-dark" style="color: white;">フォロー数</th>
+          <th id="count"><%= link_to @user.followings.count, follows_user_path(@user) %></th>
+        </tr>
+        <tr>
+          <th class="table-dark" style="color: white;">フォロワー数</th>
+          <th><%= link_to @user.followers.count, followers_user_path(@user) %></th>
+        </tr>
+      </table>
+      <% if user_signed_in? && current_user.id.to_s == params[:id] %>
+        <div>
+          <%= link_to edit_user_path(@user), class: "btn btn-info col-md-6", method: :get do %>
+           <i class="fas fa-cog"></i>
           <% end %>
         </div>
+      <% end %>
+    </div>
+    <% if @posts.present? %>
+      <div class="col-md-12 text-center mt-4" style="color: white;"><h5>〘 ユーザーの投稿 〙</h5></div>
       <%= render 'posts/post' %>
+    <% else %>
+      <div class="col-md-12 text-center mt-4" style="color: white;"><h5>〘 投稿がありません 〙</h5></div>
+    <% end %>
   </div><br>
 </div>
