@@ -5,7 +5,7 @@
         <% if user_signed_in? && current_user.id.to_s == params[:id] %>
           <h2 style="color: white;">〘 My Page 〙</h2><br>
         <% else %>
-          <h2 style="color: white;">〘 <%= @user.name %> Detail 〙</h2><br>
+          <h2 style="color: white;">〘 User Page 〙</h2><br>
         <% end %>
       </div>
     </div>
