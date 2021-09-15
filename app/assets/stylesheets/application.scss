@@ -179,20 +179,20 @@ textarea.introduction {
   box-shadow: 0 1px 0 rgba(255,255,255,1);
 }
 
-table{
+#table{
   width: 100%;
   border-collapse: collapse;
 }
 
-table tr{
+#table tr{
   border-bottom: solid 2px white;
 }
 
-table tr:last-child{
+#table tr:last-child{
   border-bottom: none;
 }
 
-table th{
+#table th{
   position: relative;
   text-align: left;
   width: 30%;
@@ -202,7 +202,7 @@ table th{
   padding: 10px 0;
 }
 
-table th:after{
+#table th:after{
   display: block;
   content: "";
   width: 0px;
@@ -215,7 +215,7 @@ table th:after{
   border-bottom: 10px solid transparent;
 }
 
-table td{
+#table td{
   text-align: left;
   width: 70%;
   text-align: center;

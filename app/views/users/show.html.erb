@@ -25,24 +25,26 @@
           <% end %>
         </tr>
       <% end %>
-      <table class='table table-bordered' style="margin-top: 10px;">
-        <tr>
-    	    <th class="table-dark" style="color: white;">ユーザー名</th>
-    	    <td><%= @user.name %></td>
-        </tr>
-        <tr>
-  	      <th class="table-dark" style="color: white;">自己紹介</th>
-  	      <td><%= @user.introduction %></td>
-        </tr>
-        <tr>
-          <th class="table-dark" style="color: white;">フォロー数</th>
-          <td id="count"><%= link_to @user.followings.count, follows_user_path(@user) %></td>
-        </tr>
-        <tr>
-          <th class="table-dark" style="color: white;">フォロワー数</th>
-          <td><%= link_to @user.followers.count, followers_user_path(@user) %></td>
-        </tr>
-      </table>
+      <div id="table">
+        <table class='table table-bordered' style="margin-top: 10px;">
+          <tr>
+      	    <th class="table-dark" style="color: white;">ユーザー名</th>
+      	    <td><%= @user.name %></td>
+          </tr>
+          <tr>
+    	      <th class="table-dark" style="color: white;">自己紹介</th>
+    	      <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th class="table-dark" style="color: white;">フォロー数</th>
+            <td id="count"><%= link_to @user.followings.count, follows_user_path(@user) %></td>
+          </tr>
+          <tr>
+            <th class="table-dark" style="color: white;">フォロワー数</th>
+            <td><%= link_to @user.followers.count, followers_user_path(@user) %></td>
+          </tr>
+        </table>
+      </div>
       <% if user_signed_in? && current_user.id.to_s == params[:id] %>
         <div>
           <%= link_to edit_user_path(@user), class: "btn btn-info col-md-6", method: :get do %>
