@@ -224,7 +224,7 @@ textarea.introduction {
 }
 
 .btn_design {
-    font-size: 28px;
+    font-size: 10px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -242,6 +242,29 @@ textarea.introduction {
 
 /* マウスオーバー時 */
 .btn_design:hover, .hvr-shrink:focus, .hvr-shrink:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.btn_design2 {
+    font-size: 28px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.2s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+/* マウスオーバー時 */
+.btn_design2:hover, .hvr-shrink:focus, .hvr-shrink:active {
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
     cursor: pointer;
