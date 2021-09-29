@@ -2,8 +2,8 @@
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to post_path(post.id) do %>
-        <div class="post_title">
-          <h5><i class="far fa-flag"></i><%= post.title %></h5>
+        <div class="btn02 rotatefront">
+          <span><%= post.title %></span><span>投稿の詳細へ</span>
         </div>
     <% end %>
     <div class "col-md-12">
