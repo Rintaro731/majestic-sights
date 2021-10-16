@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :keyword, class: "keyword", placeholder: "キーワードを入力", value: @keyword, size: 30; %>
-      <%= f.submit "Search", class: "btn btn-outline-light btn-sm " %>
-    <% end %>
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, class: "keyword", placeholder: "キーワードを入力", value: @keyword, size: 30; %>
+    <%= button_tag sanitize('<i class="fa fa-search"></i> Search '), :type => "submit", :class =>"btn btn-outline-light btn-md" %>
+  <% end %>
 <% end %>
