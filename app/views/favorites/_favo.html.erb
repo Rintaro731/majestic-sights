@@ -5,7 +5,7 @@
     <%= post.favorites.count %>件のいいね
 <% else %>
     <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-      <i class="far fa-heart"></i>
+      <div class="heart"></div>
     <% end %>
     <%= post.favorites.count %>件のいいね
 <% end %>
