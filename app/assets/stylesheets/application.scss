@@ -144,8 +144,13 @@ textarea.introduction {
 }
 
 #map {
-  height: 250px;
+  height: 300px;
   width: 100%;
+  color: #FFF;
+  background: #6eb7ff;
+  border: solid 6px #808080;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
   background-color: grey;
 }
 
