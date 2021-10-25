@@ -19,7 +19,9 @@
         <div class="post_address">
           <h6><i class="fas fa-map-marked-alt"></i><%= @post.address %></h6>
         </div>
-        <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
+        <div class="post_image">
+          <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
+        </div>
         <%= render "posts/map" %>
         <div class="card-body">
           <div class="row">
