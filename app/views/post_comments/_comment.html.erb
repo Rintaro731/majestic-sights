@@ -18,8 +18,6 @@
 <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
   <div class="col-md-12"><br>
     <%= f.text_field :comment, placeholder: "コメントする" %>
-    <div class="btn_design">
-      <%= f.submit "送信", class: 'btn btn-sm btn-success' %>
-    </div>
+    <%= f.submit "送信", class: 'btn_design btn btn-sm btn-success' %>
   </div>
 <% end %>
